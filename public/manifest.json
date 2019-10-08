@@ -1,0 +1,15 @@
+{
+  "short_name": "react-ant-starter",
+  "name": "React Ant Starter",
+  "icons": [
+    {
+      "src": "images/favicon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#002040",
+  "background_color": "#FFFAF0"
+}
