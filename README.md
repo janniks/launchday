@@ -1,4 +1,4 @@
-# react-ant-starter :rocket:
+# launchday-frontend :rocket:
 
 ## Introduction
 
