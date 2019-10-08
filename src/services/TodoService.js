@@ -1,5 +1,4 @@
 import axios from 'axios'
-import moment from 'moment-timezone'
 
 import generateColors from 'distinct-colors'
 
