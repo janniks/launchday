@@ -43,7 +43,6 @@ const Today = () => {
                       .tz('America/Los_Angeles')
                       .utcOffset(0, true)
                 }
-                // position: 'bottom'
               }
             ]
           },
@@ -53,22 +52,35 @@ const Today = () => {
             animationDuration: 0
           },
           elements: {
-            line: {
-              // tension: 0 // disables bezier curves
-            },
             point: {
               radius: 0
             }
           },
           animation: {
-            duration: 0 // general animation time
+            duration: 0
           },
           responsiveAnimationDuration: 0,
           maintainAspectRatio: false,
           tooltips: {
             callbacks: {
-              label: function(tooltipItem) {
-                return `${tooltipItem.yLabel} votes`
+              label: function(tooltipItem, data) {
+                return ` ${data.datasets[tooltipItem.datasetIndex].label}`
+              },
+              labelColor: function(tooltipItem, chart) {
+                const color =
+                  chart.config.data.datasets[tooltipItem.datasetIndex]
+                    .backgroundColor
+                return {
+                  borderColor: color,
+                  backgroundColor: color
+                }
+              },
+              title: function(tooltipItems) {
+                const time = moment(tooltipItems[0].xLabel)
+                  .tz('America/Los_Angeles')
+                  .utcOffset(0, true)
+                  .format('hh:mm A')
+                return `${tooltipItems[0].yLabel} votes - ${time}`
               }
             }
           }

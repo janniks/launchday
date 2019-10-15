@@ -3,7 +3,7 @@ import axios from 'axios'
 import generateColors from 'distinct-colors'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
-const TODAY_URL = `${BASE_URL}/24h`
+const TODAY_URL = `${BASE_URL}/today`
 
 export default class ApiService {
   static async getToday({ setDatasets, setError }) {
@@ -48,14 +48,16 @@ function transformToDatasets(data) {
       label: post.post_name,
       fill: false,
       backgroundColor: colors[index],
-      borderColor: colors[index]
+      borderColor: colors[index],
+      lineTension: 0.1
     })
     voteDataset.push({
       data: voteCoordinates,
       label: post.post_name,
       fill: false,
       backgroundColor: colors[index],
-      borderColor: colors[index]
+      borderColor: colors[index],
+      lineTension: 0.1
     })
   })
 
