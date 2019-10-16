@@ -6,6 +6,8 @@ import moment from 'moment-timezone'
 
 import ApiService from 'services/TodoService'
 
+const timezoneOffset = moment().utcOffset() / 60
+
 const Today = () => {
   const [error, setError] = useState(false)
   const [datasets, setDatasets] = useState(false)
@@ -41,7 +43,7 @@ const Today = () => {
                   parser: t =>
                     moment(t)
                       .tz('America/Los_Angeles')
-                      .utcOffset(0, true)
+                      .utcOffset(timezoneOffset, true)
                 }
               }
             ]
@@ -76,7 +78,7 @@ const Today = () => {
                 }
               },
               title: function(tooltipItems) {
-                const time = moment(tooltipItems[0].xLabel)
+                const time = moment(tooltipItems[0].label)
                   .tz('America/Los_Angeles')
                   .utcOffset(0, true)
                   .format('hh:mm A')
