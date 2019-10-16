@@ -4,16 +4,17 @@ import { Icon, Result } from 'antd'
 import { Line } from 'react-chartjs-2'
 import moment from 'moment-timezone'
 
-import ApiService from 'services/TodoService'
+import DataService from 'services/DataService'
 
 const timezoneOffset = moment().utcOffset() / 60
 
 const Today = () => {
   const [error, setError] = useState(false)
+  const [status, setStatus] = useState('Fetching data...')
   const [datasets, setDatasets] = useState(false)
 
   useEffect(() => {
-    ApiService.getToday({ setDatasets, setError })
+    DataService.getToday({ setDatasets, setStatus, setError })
   }, [])
 
   if (error) {
@@ -23,7 +24,7 @@ const Today = () => {
   if (!datasets) {
     return (
       <div>
-        <Icon type="loading" /> Loading...
+        <Icon type="loading" /> {status}
       </div>
     )
   }

@@ -5,11 +5,15 @@ import generateColors from 'distinct-colors'
 const BASE_URL = process.env.REACT_APP_BASE_URL
 const TODAY_URL = `${BASE_URL}/today`
 
-export default class ApiService {
-  static async getToday({ setDatasets, setError }) {
+export default class DataService {
+  static async getToday({ setDatasets, setStatus, setError }) {
+    setTimeout(() => {
+      setStatus('Calculating graphs...')
+    }, 750)
     axios
       .get(`${TODAY_URL}`)
       .then(response => {
+        setStatus('Calculating graphs...')
         console.log('data', response.data)
         const datasets = transformToDatasets(response.data)
         setDatasets(datasets)
@@ -27,7 +31,9 @@ function transformToDatasets(data) {
   const voteDataset = []
 
   const colors = generateColors({
-    count: data.length
+    count: data.length,
+    lightMin: 35,
+    lightMax: 95
   })
 
   data.forEach((post, index) => {
