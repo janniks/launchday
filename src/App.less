@@ -1,0 +1,47 @@
+@import '~antd/es/style/themes/default.less';
+
+// Variables
+@background-color: #f0f2f5;
+
+// General
+h1,
+h2,
+h3,
+.ant-card-head-title {
+  // font-family: @header-font;
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+// Ant Design Adjustments
+.ant-layout-header {
+  background: none;
+  padding: 0;
+  // border-bottom: 1px solid darken(#f0f2f5, 15%);
+  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.ant-layout-content {
+  padding: 46px 0;
+}
+
+div.ant-card-head {
+  border-bottom: 1px solid @background-color;
+}
+
+// Custom
+.card,
+div.ant-card {
+  background: white;
+  border: none;
+  border-radius: 9px;
+}
+
+.card {
+  display: inline-block;
+  margin: 14px 0;
+  padding: 0 20px;
+  h1 {
+    margin: 0;
+  }
+}
