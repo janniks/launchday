@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 import generateColors from 'distinct-colors'
+import { sortBy } from 'lodash'
 
 const BASE_URL = process.env.REACT_APP_BASE_URL
 const TODAY_URL = `${BASE_URL}/today`
@@ -9,7 +10,7 @@ export default class DataService {
   static async getToday({ setDatasets, setStatus, setError }) {
     setTimeout(() => {
       setStatus('Calculating graphs...')
-    }, 750)
+    }, 1500)
     axios
       .get(`${TODAY_URL}`)
       .then(response => {
@@ -27,8 +28,8 @@ export default class DataService {
 
 function transformToDatasets(data) {
   console.log('transform start')
-  const commentDataset = []
-  const voteDataset = []
+  let commentDataset = []
+  let voteDataset = []
 
   const colors = generateColors({
     count: data.length,
@@ -66,6 +67,9 @@ function transformToDatasets(data) {
       lineTension: 0.1
     })
   })
+
+  commentDataset = sortBy(commentDataset, ds => -ds.data[0].y)
+  voteDataset = sortBy(voteDataset, ds => -ds.data[0].y)
 
   console.log('transform complete')
   return {
