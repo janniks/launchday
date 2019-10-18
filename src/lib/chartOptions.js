@@ -2,7 +2,7 @@ import moment from 'moment-timezone'
 
 const timezoneOffset = moment().utcOffset() / 60
 
-const options = {
+const getChartOptions = type => ({
   scales: {
     xAxes: [
       {
@@ -65,10 +65,10 @@ const options = {
           .tz('America/Los_Angeles')
           .utcOffset(0, true)
           .format('hh:mm A')
-        return `${tooltipItems[0].yLabel} votes - ${time}`
+        return `${tooltipItems[0].yLabel} ${type} - ${time}`
       }
     }
   }
-}
+})
 
-export default options
+export default getChartOptions

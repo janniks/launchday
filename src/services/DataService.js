@@ -28,8 +28,8 @@ export default class DataService {
 
 function transformToDatasets(data) {
   console.log('transform start')
-  let commentDataset = []
-  let voteDataset = []
+  let commentDatasets = []
+  let voteDatasets = []
 
   const colors = generateColors({
     count: data.length,
@@ -38,8 +38,8 @@ function transformToDatasets(data) {
   })
 
   data.forEach((post, index) => {
-    const commentCoordinates = []
-    const voteCoordinates = []
+    let commentCoordinates = []
+    let voteCoordinates = []
     post.counts.forEach(poll => {
       commentCoordinates.push({
         x: poll.polled_at,
@@ -50,7 +50,7 @@ function transformToDatasets(data) {
         y: poll.votes_count
       })
     })
-    commentDataset.push({
+    commentDatasets.push({
       data: commentCoordinates,
       label: post.post_name,
       fill: false,
@@ -58,7 +58,7 @@ function transformToDatasets(data) {
       borderColor: colors[index],
       lineTension: 0.1
     })
-    voteDataset.push({
+    voteDatasets.push({
       data: voteCoordinates,
       label: post.post_name,
       fill: false,
@@ -68,12 +68,12 @@ function transformToDatasets(data) {
     })
   })
 
-  commentDataset = sortBy(commentDataset, ds => -ds.data[0].y)
-  voteDataset = sortBy(voteDataset, ds => -ds.data[0].y)
+  commentDatasets = sortBy(commentDatasets, ds => -ds.data[0].y)
+  voteDatasets = sortBy(voteDatasets, ds => -ds.data[0].y)
 
   console.log('transform complete')
   return {
-    commentDataset,
-    voteDataset
+    commentDatasets,
+    voteDatasets
   }
 }

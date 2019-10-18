@@ -4,7 +4,7 @@ import { Result } from 'antd'
 import moment from 'moment-timezone'
 
 import DataService from 'services/DataService'
-import Chart from 'components/Chart'
+import ChartWrapper from 'components/ChartWrapper'
 
 const Today = () => {
   const [error, setError] = useState(false)
@@ -28,7 +28,7 @@ const Today = () => {
           .format('hh:mm A')}{' '}
         at ProductHunt!
       </p>
-      <Chart datasets={datasets} status={status} />
+      <ChartWrapper datasets={datasets} status={status} />
     </div>
   )
 }

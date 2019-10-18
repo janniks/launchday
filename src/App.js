@@ -38,7 +38,7 @@ const App = () => {
           <Row>
             <Col {...colProps}>
               <Router>
-                <Route exact path="/" component={Today} />
+                <Route path="/today" component={Today} />
               </Router>
             </Col>
           </Row>
