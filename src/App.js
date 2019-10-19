@@ -4,8 +4,10 @@ import 'App.less'
 
 import { Col, Icon, Layout, Row } from 'antd'
 import Today from 'pages/Today'
+import FAQs from 'components/FAQs'
 
 import rocket from 'resources/rocket'
+import Feedback from 'components/Feedback'
 
 const { Header, Footer, Content } = Layout
 
@@ -37,13 +39,20 @@ const App = () => {
         <Content>
           <Row>
             <Col {...colProps}>
+              <p>
+                Launchday shows you the history of votes/comments for products
+                on ProductHunt. All times are shown in ProductHunt time (i.e.
+                San Francisco time, PDT PST)
+              </p>
               <Router>
-                <Route path="/today" component={Today} />
+                <Route path="/" component={Today} />
               </Router>
+              <FAQs />
+              <Feedback />
             </Col>
           </Row>
         </Content>
-        <Footer>
+        <Footer className="center">
           <Row>
             <Col {...colProps}>made by @jnnksbrt</Col>
           </Row>

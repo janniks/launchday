@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
-import { Button, Collapse, Icon } from 'antd'
-
-const { Panel } = Collapse
+import { Button, Icon } from 'antd'
 
 const Legend = props => {
   const [update, setUpdate] = useState(0)
@@ -36,10 +34,9 @@ const Legend = props => {
 
   return (
     <div className="Legend">
-      {/* <div className="ant-card-head-title">Legend</div> */}
       <div className="center">
         {legendList}
-        <p>
+        <p style={{ marginTop: '20px' }}>
           <Icon type="info-circle" /> Click on legend items to hide/show them in
           the chart.
         </p>
