@@ -21,7 +21,7 @@ export default class DataService {
       })
       .catch(e => {
         console.error(e)
-        setError('getToday error')
+        setError('Error getting todays product information')
       })
   }
 }

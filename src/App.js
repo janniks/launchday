@@ -7,7 +7,7 @@ import Today from 'pages/Today'
 import FAQs from 'components/FAQs'
 
 import rocket from 'resources/rocket'
-import Feedback from 'components/Feedback'
+import FeedbackWrapper from 'components/FeedbackWrapper'
 
 const { Header, Footer, Content } = Layout
 
@@ -64,7 +64,7 @@ const App = () => {
           </Row>
           <Row>
             <Col {...thinColumn}>
-              <Feedback />
+              <FeedbackWrapper />
             </Col>
           </Row>
         </Content>

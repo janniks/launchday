@@ -52,8 +52,13 @@ div.ant-card-head {
   font-weight: bold !important;
 }
 
+button.ant-btn.ant-btn-sm {
+  padding: 0 7px 5px 7px;
+}
+
 span[role='img'] {
   color: initial;
+  font-size: 1.125em;
 }
 
 // Custom
@@ -115,6 +120,28 @@ button.legendHidden:focus {
 
 .floatRight {
   float: right;
+}
+
+.noSemicolon .ant-form-item-label > label::after {
+  display: none;
+}
+
+.formModal {
+  small {
+    color: darkgray;
+    font-weight: initial;
+  }
+  .ant-form-item-label {
+    line-height: initial;
+    white-space: initial;
+    text-align: initial;
+  }
+  .ant-input-prefix .anticon {
+    color: darkgray;
+  }
+  input.ant-input[type='text'] {
+    padding-left: 33px;
+  }
 }
 
 .contentTab {
