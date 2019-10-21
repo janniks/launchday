@@ -46,20 +46,45 @@ div.ant-card-head {
   }
 }
 
+.ant-tabs-tab {
+  margin: 0 !important;
+  text-transform: uppercase;
+  font-weight: bold !important;
+}
+
+span[role='img'] {
+  color: initial;
+}
+
 // Custom
-.card,
+.logo,
 div.ant-card {
   background: white;
   border: none;
   border-radius: 9px;
 }
 
-.card {
+.logo {
   display: inline-block;
   margin: 14px 0;
   padding: 0 20px;
   h1 {
     margin: 0;
+  }
+
+  position: relative;
+  &.beta:after {
+    position: absolute;
+    content: 'BETA';
+    padding: 2px 6px;
+    top: -9px;
+    right: -22px;
+    height: auto;
+    line-height: initial;
+    color: white;
+    background: @primary-5;
+    border: 1px solid @primary-7;
+    border-radius: 6px;
   }
 }
 
@@ -106,8 +131,9 @@ button.legendHidden:focus {
 }
 
 .Legend {
+  margin-top: 16px;
   p {
-    margin-top: 20px;
+    margin-top: 24px;
   }
 }
 

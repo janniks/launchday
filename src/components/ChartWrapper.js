@@ -26,7 +26,7 @@ const ChartWrapper = props => {
             forceRender={true}
             tab={
               <span>
-                <Icon type="up-circle" />
+                <Icon type="up-circle" theme="filled" />
                 Votes
               </span>
             }
@@ -38,7 +38,7 @@ const ChartWrapper = props => {
             forceRender={true}
             tab={
               <span>
-                <Icon type="message" />
+                <Icon type="message" theme="filled" />
                 Comments
               </span>
             }

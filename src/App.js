@@ -13,12 +13,20 @@ const { Header, Footer, Content } = Layout
 
 const RocketIcon = () => <Icon component={rocket} />
 
-const colProps = {
+const wideColumn = {
   xs: { span: 22, offset: 1 },
   sm: { span: 22, offset: 1 },
   md: { span: 20, offset: 2 },
   lg: { span: 18, offset: 3 },
-  xl: { span: 16, offset: 4 }
+  xl: { span: 14, offset: 5 }
+}
+
+const thinColumn = {
+  xs: { span: 22, offset: 1 },
+  sm: { span: 20, offset: 2 },
+  md: { span: 14, offset: 5 },
+  lg: { span: 10, offset: 7 },
+  xl: { span: 8, offset: 8 }
 }
 
 const App = () => {
@@ -27,8 +35,8 @@ const App = () => {
       <Layout>
         <Header>
           <Row>
-            <Col {...colProps}>
-              <a className="card" href="/">
+            <Col {...wideColumn}>
+              <a className="logo beta" href="/">
                 <h1>
                   Launchday <RocketIcon />
                 </h1>
@@ -38,7 +46,7 @@ const App = () => {
         </Header>
         <Content>
           <Row>
-            <Col {...colProps}>
+            <Col {...wideColumn}>
               <p>
                 Launchday shows you the history of votes/comments for products
                 on ProductHunt. All times are shown in ProductHunt time (i.e.
@@ -47,14 +55,22 @@ const App = () => {
               <Router>
                 <Route path="/" component={Today} />
               </Router>
+            </Col>
+          </Row>
+          <Row>
+            <Col {...wideColumn}>
               <FAQs />
+            </Col>
+          </Row>
+          <Row>
+            <Col {...thinColumn}>
               <Feedback />
             </Col>
           </Row>
         </Content>
         <Footer className="center">
           <Row>
-            <Col {...colProps}>made by @jnnksbrt</Col>
+            <Col {...wideColumn}>made by @jnnksbrt</Col>
           </Row>
         </Footer>
       </Layout>

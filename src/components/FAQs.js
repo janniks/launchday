@@ -1,15 +1,10 @@
 import React from 'react'
 
-import { Card, Collapse, Icon } from 'antd'
+import { Card, Col, Icon, Row } from 'antd'
 
-const { Panel } = Collapse
-
-const customPanelStyle = {
-  // background: '#f7f7f7',
-  borderRadius: 4,
-  // marginBottom: 24,
-  border: 0,
-  overflow: 'hidden'
+const panelColumn = {
+  xs: { span: 24 },
+  lg: { span: 12 }
 }
 
 const FAQs = () => {
@@ -19,73 +14,44 @@ const FAQs = () => {
         FAQs <Icon type="question-circle" size="small" theme="filled" />
       </h3>
       <Card>
-        <Collapse
-          bordered={false}
-          expandIcon={({ isActive }) => (
-            <Icon size="small" type="caret-right" rotate={isActive ? 90 : 0} />
-          )}
-        >
-          <Panel
-            header="This is panel header 1"
-            key="1"
-            style={customPanelStyle}
-          >
+        <Row gutter={16}>
+          <Col {...panelColumn}>
+            <h3>Where is this data from?</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ergo, si
-              semel tristior effectus est, hilara vita amissa est? Si longus,
-              levis; Gerendus est mos, modo recte sentiat. Audax negotium,
-              dicerem impudens, nisi hoc institutum postea translatum ad
-              philosophos nostros esset. Erat enim Polemonis. Quo studio
-              Aristophanem putamus aetatem in litteris duxisse? Duo Reges:
-              constructio interrete. Si enim, ut mihi quidem videtur, non explet
-              bona naturae voluptas, iure praetermissa est; Inde sermone vario
-              [redacted] illa a Dipylo stadia confecimus. Non igitur bene. Sed
-              vobis voluptatum perceptarum recordatio vitam beatam facit, et
-              quidem corpore perceptarum. Dempta enim aeternitate nihilo beatior
-              Iuppiter quam Epicurus;
+              This site uses the official{' '}
+              <a href="https://api.producthunt.com/v1/docs">ProductHunt API</a>{' '}
+              to fetch current data. We poll ProductHunt current products every
+              minute and reduce the data points afterwards.
             </p>
-          </Panel>
-          <Panel
-            header="This is panel header 2"
-            key="2"
-            style={customPanelStyle}
-          >
+          </Col>
+          <Col {...panelColumn}>
+            <h3>Do you have data for every day ever?</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ergo, si
-              semel tristior effectus est, hilara vita amissa est? Si longus,
-              levis; Gerendus est mos, modo recte sentiat. Audax negotium,
-              dicerem impudens, nisi hoc institutum postea translatum ad
-              philosophos nostros esset. Erat enim Polemonis. Quo studio
-              Aristophanem putamus aetatem in litteris duxisse? Duo Reges:
-              constructio interrete. Si enim, ut mihi quidem videtur, non explet
-              bona naturae voluptas, iure praetermissa est; Inde sermone vario
-              [redacted] illa a Dipylo stadia confecimus. Non igitur bene. Sed
-              vobis voluptatum perceptarum recordatio vitam beatam facit, et
-              quidem corpore perceptarum. Dempta enim aeternitate nihilo beatior
-              Iuppiter quam Epicurus;
+              Unfortunately, we startet this project in October 2019 and only
+              have the data since then. Feel free to{' '}
+              <a href="https://twitter.com/intent/tweet?text=@ProductHunt%20check%20out%20launchday.netlify.com%20-%20they%20need%20your%20data!%20📊">
+                tweet at ProductHunt
+              </a>
+              , so they can send us the missing data.{' '}
+              <span role="img" aria-label="wink emoji">
+                😉
+              </span>
             </p>
-          </Panel>
-          <Panel
-            header="This is panel header 3"
-            key="3"
-            style={customPanelStyle}
-          >
+          </Col>
+          <Col {...panelColumn}>
+            <h3>Is this related to ProductHunt's 'Launchday'?</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ergo, si
-              semel tristior effectus est, hilara vita amissa est? Si longus,
-              levis; Gerendus est mos, modo recte sentiat. Audax negotium,
-              dicerem impudens, nisi hoc institutum postea translatum ad
-              philosophos nostros esset. Erat enim Polemonis. Quo studio
-              Aristophanem putamus aetatem in litteris duxisse? Duo Reges:
-              constructio interrete. Si enim, ut mihi quidem videtur, non explet
-              bona naturae voluptas, iure praetermissa est; Inde sermone vario
-              [redacted] illa a Dipylo stadia confecimus. Non igitur bene. Sed
-              vobis voluptatum perceptarum recordatio vitam beatam facit, et
-              quidem corpore perceptarum. Dempta enim aeternitate nihilo beatior
-              Iuppiter quam Epicurus;
+              Technically, this is not related to the{' '}
+              <a href="https://www.producthunt.com/posts/launch-day-by-product-hunt/launch-day">
+                ProductHunt feature
+              </a>{' '}
+              where you can add <code>/launchday</code> to a products URL. We
+              might rename this site to avoid confusion. We love ProductHunt,
+              but this site is unfortunately not affiliated with ProductHunt
+              directly.
             </p>
-          </Panel>
-        </Collapse>
+          </Col>
+        </Row>
       </Card>
     </div>
   )

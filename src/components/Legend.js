@@ -36,9 +36,10 @@ const Legend = props => {
     <div className="Legend">
       <div className="center">
         {legendList}
-        <p style={{ marginTop: '20px' }}>
-          <Icon type="info-circle" /> Click on legend items to hide/show them in
-          the chart.
+        <p>
+          <Icon type="info-circle" size="small" theme="filled" />{' '}
+          <strong>Tip:</strong> Click on legend items to hide/show them in the
+          chart.
         </p>
       </div>
     </div>
