@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
 import { Result } from 'antd'
-import moment from 'moment-timezone'
 
 import DataService from 'services/DataService'
 import ChartWrapper from 'components/ChartWrapper'
+import TimeTick from 'components/TimeTick'
 
 const Today = () => {
   const [error, setError] = useState(false)
@@ -21,13 +21,7 @@ const Today = () => {
 
   return (
     <div>
-      <p>
-        It's currently{' '}
-        {moment()
-          .tz('America/Los_Angeles')
-          .format('hh:mm A')}{' '}
-        at ProductHunt!
-      </p>
+      <TimeTick />
       <ChartWrapper datasets={datasets} status={status} />
     </div>
   )

@@ -6,7 +6,7 @@ const FooterContent = () => {
   return (
     <div>
       <p>
-        made by{' '}
+        © {new Date().getFullYear()}{' '}
         <a href="https://twitter.com/jnnksbrt">
           @jnnksbrt <Icon type="twitter" />
         </a>
@@ -17,6 +17,7 @@ const FooterContent = () => {
           GitHub <Icon type="github" />
         </a>
       </p>
+      <p></p>
     </div>
   )
 }
