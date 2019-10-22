@@ -5,9 +5,9 @@ import { Card, Form, Icon } from 'antd'
 import FeedbackForm from 'components/FeedbackForm'
 
 const FeedbackWrapper = () => {
-  const [formKey, setFormKey] = useState(-1)
+  const setWrapper = useState(-1)[1]
   const resetForm = () => {
-    setFormKey(Date.now())
+    setWrapper(Date.now())
   }
 
   const WrappedForm = Form.create()(FeedbackForm)
@@ -18,7 +18,7 @@ const FeedbackWrapper = () => {
         Feedback <Icon type="bug" size="small" theme="filled" />
       </h3>
       <Card>
-        <WrappedForm key={formKey} resetForm={resetForm} />
+        <WrappedForm resetForm={resetForm} />
       </Card>
     </div>
   )
