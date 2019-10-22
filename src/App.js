@@ -1,14 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import 'App.less'
 
 import { Col, Icon, Layout, Row } from 'antd'
+
 import Today from 'pages/Today'
 import FAQs from 'components/FAQs'
-
-import rocket from 'resources/rocket'
 import FeedbackWrapper from 'components/FeedbackWrapper'
 import FooterContent from 'components/FooterContent'
+import rocket from 'resources/rocket'
+import showCookiePopup from 'lib/cookiePopup'
 
 const { Header, Footer, Content } = Layout
 
@@ -31,6 +32,8 @@ const thinColumn = {
 }
 
 const App = () => {
+  showCookiePopup()
+
   return (
     <div>
       <Layout>
