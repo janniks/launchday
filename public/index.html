@@ -22,6 +22,21 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+
+    <!-- netlify forms for bots -->
+    <form
+      name="netlify-feedback-form-v1"
+      netlify
+      netlify-honeypot="bot-field"
+      hidden
+    >
+      <input type="number" name="rate" />
+      <input type="text" name="feature" />
+      <textarea name="change"></textarea>
+      <textarea name="other"></textarea>
+      <input type="email" name="email" />
+    </form>
+
     <div id="root"></div>
   </body>
 </html>

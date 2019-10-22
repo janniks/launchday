@@ -103,7 +103,7 @@ const FeedbackForm = props => {
             )}
           </Form.Item>
           <Form.Item label="What would you change about Launchday and what's missing?">
-            {getFieldDecorator('change-missing')(
+            {getFieldDecorator('change')(
               <TextArea
                 rows={2}
                 placeholder="Any changes, missing features, bug reports (optional)"
@@ -129,6 +129,7 @@ const FeedbackForm = props => {
             {getFieldDecorator('email')(
               <Input
                 placeholder="Email address (optional)"
+                type="email"
                 prefix={<Icon type="mail" />}
               />
             )}
