@@ -1,4 +1,4 @@
-# launchday-frontend :rocket:
+# launchday :rocket:
 
 ## Introduction
 
@@ -40,7 +40,3 @@ Builds the app for production to the `build/` directory. It correctly bundles Re
 The build is minified and the filenames include the hashes. Your app is ready to be deployed!
 
 > See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### Docker Deployment
-
-The [`docker/`](docker) directory contains a [Dockerfile](docker/Dockerfile) and a [nginx configuration](docker/nginx.conf). Building the image installs and builds the React app. Running the container serves the built static bundle via a minimal nginx web server on port 80.
