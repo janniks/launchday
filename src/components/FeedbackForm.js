@@ -1,29 +1,20 @@
 import React, { useState } from 'react'
 import { Button, Form, Icon, Input, Modal, Select, Rate, message } from 'antd'
 import axios from 'axios'
+import qs from 'querystring'
 
 const { TextArea } = Input
 const { Option, OptGroup } = Select
-
-const formEncode = data => {
-  return Object.keys(data)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&')
-}
 
 const formSubmit = (e, props, showModal) => {
   e.preventDefault()
   props.form.validateFields((err, values) => {
     axios
-      .post(
-        '/',
-        formEncode({ 'form-name': 'netlify-feedback-form-v1', ...values }),
-        {
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          }
+      .post('/', qs({ 'form-name': 'netlify-feedback-form-v1', ...values }), {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
-      )
+      })
       .then(() => {
         showModal(false)
         message.success('Thanks for your time and feedback!')
