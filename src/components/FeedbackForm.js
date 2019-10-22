@@ -26,7 +26,7 @@ const formSubmit = (e, props, showModal) => {
       )
       .then(() => {
         showModal(false)
-        message.info('Thanks for your time and feedback!')
+        message.success('Thanks for your time and feedback!')
         props.resetForm()
       })
       .catch(error => {
