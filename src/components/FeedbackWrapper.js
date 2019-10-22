@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Card, Form, Icon } from 'antd'
 
 import FeedbackForm from 'components/FeedbackForm'
 
 const FeedbackWrapper = () => {
-  const EnhancedForm = Form.create()(FeedbackForm)
-  // <EnhancedForm wrappedComponentRef={(form) => this.form = form} />
+  const [formKey, setFormKey] = useState(-1)
+  const resetForm = () => {
+    setFormKey(Date.now())
+  }
+
+  const WrappedForm = Form.create()(FeedbackForm)
 
   return (
     <div>
@@ -14,7 +18,7 @@ const FeedbackWrapper = () => {
         Feedback <Icon type="bug" size="small" theme="filled" />
       </h3>
       <Card>
-        <EnhancedForm />
+        <WrappedForm key={formKey} resetForm={resetForm} />
       </Card>
     </div>
   )

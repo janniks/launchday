@@ -9,17 +9,13 @@ h2,
 h3,
 .ant-card-head-title,
 .ant-collapse-header {
-  // font-family: @header-font;
   font-weight: bolder;
   text-transform: uppercase;
 }
 
-// Ant Design Adjustments
 .ant-layout-header {
   background: none;
   padding: 0;
-  // border-bottom: 1px solid darken(#f0f2f5, 15%);
-  // box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
 .ant-layout-content {
@@ -122,7 +118,7 @@ button.legendHidden:focus {
   float: right;
 }
 
-.noSemicolon .ant-form-item-label > label::after {
+.noColon .ant-form-item-label > label::after {
   display: none;
 }
 
@@ -141,6 +137,16 @@ button.legendHidden:focus {
   }
   input.ant-input[type='text'] {
     padding-left: 33px;
+  }
+  textarea.ant-input {
+    line-height: initial;
+  }
+  .ant-form-item:last-child {
+    margin: 0;
+  }
+  button[type='submit'] {
+    margin-top: -6px;
+    float: right;
   }
 }
 
@@ -169,5 +175,15 @@ button.legendHidden:focus {
   font-size: 18px;
   .anticon {
     margin-right: 4px;
+  }
+}
+
+// Responsive
+@media (max-width: @screen-xs) {
+  div.ant-card-body,
+  div.ant-modal-body,
+  div.ant-modal-header,
+  .contentTab .Chart {
+    padding: 16px;
   }
 }

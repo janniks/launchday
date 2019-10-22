@@ -1,18 +1,45 @@
 import React, { useState } from 'react'
-import { Button, Form, Icon, Input, Modal, Select, Radio, Rate } from 'antd'
+import { Button, Form, Icon, Input, Modal, Select, Rate, message } from 'antd'
+import axios from 'axios'
 
 const { TextArea } = Input
-const { Option } = Select
+const { Option, OptGroup } = Select
+
+const formEncode = data => {
+  return Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&')
+}
+
+const formSubmit = (e, props, showModal) => {
+  e.preventDefault()
+  props.form.validateFields((err, values) => {
+    axios
+      .post(
+        '/',
+        formEncode({ 'form-name': 'netlify-feedback-form-v1', ...values }),
+        {
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        }
+      )
+      .then(() => {
+        showModal(false)
+        message.info('Thanks for your time and feedback!')
+        props.resetForm()
+      })
+      .catch(error => {
+        showModal(false)
+        message.warning('Oops, something went wrong...')
+      })
+  })
+}
 
 const FeedbackForm = props => {
   const [modalVisibility, showModal] = useState(false)
 
-  const {
-    getFieldDecorator,
-    getFieldsError,
-    getFieldError,
-    isFieldTouched
-  } = props.form
+  const { getFieldDecorator } = props.form
 
   return (
     <div className="center">
@@ -20,7 +47,6 @@ const FeedbackForm = props => {
         We love feedback and would like to hear your honest opinion about
         Launchday. Tell us what you like and dislike!
       </p>
-
       <Button onClick={() => showModal(true)} icon="smile" size="small">
         Give Feedback
       </Button>
@@ -28,28 +54,20 @@ const FeedbackForm = props => {
         className="formModal"
         title={
           <span>
-            Feedback{' '}
-            <small>
-              <em>(everything on this form is optional)</em>
+            Feedback
+            <small style={{ marginLeft: 8 }}>
+              <em>Everything on this form is optional</em>
             </small>
           </span>
         }
         visible={modalVisibility}
-        // onOk={this.handleOk}
         onCancel={() => showModal(false)}
         footer={null}
         centered
       >
         <Form
-          className="noSemicolon"
-          onSubmit={event => {
-            event.preventDefault()
-            props.form.validateFields((err, values) => {
-              if (!err) {
-                console.log('Received values of form: ', values)
-              }
-            })
-          }}
+          className="noColon"
+          onSubmit={e => formSubmit(e, props, showModal)}
         >
           <Form.Item
             label="How helpful is Launchday to you?"
@@ -59,25 +77,43 @@ const FeedbackForm = props => {
           </Form.Item>
           <Form.Item label="What feature should we work on next?">
             {getFieldDecorator('feature')(
-              <Select placeholder="Please select the next most important feature">
+              <Select placeholder="The next most important feature (optional)">
                 <Option value="any-day">
-                  View the ProductHunt data for any given day
+                  View the Launchday charts for any given day in the past
                 </Option>
-                <Option value="blue">
+                <Option value="search-product">
+                  Add search for specific product launches
+                </Option>
+                <Option value="other-sites">
                   Add tracking for other sites (e.g. HackerNews)
                 </Option>
-                <Option value="green">
-                  product tracking: alerts (e.g. votes spikes), comment
-                  sentiment analysis, competitor performance tracking
-                </Option>
+                <OptGroup label="Product Tracking">
+                  <Option value="alerts">
+                    Automated alerts (e.g. vote spikes)
+                  </Option>
+                  <Option value="comment-sentiment">
+                    Comment sentiment analysis
+                  </Option>
+                  <Option value="competitor-tracking">
+                    Competitor performance tracking
+                  </Option>
+                </OptGroup>
+                <Option value="none">None of the above</Option>
               </Select>
             )}
           </Form.Item>
           <Form.Item label="What would you change about Launchday and what's missing?">
-            {getFieldDecorator('change-missing')(<TextArea rows={2} />)}
+            {getFieldDecorator('change-missing')(
+              <TextArea
+                rows={2}
+                placeholder="Any changes, missing features, bug reports (optional)"
+              />
+            )}
           </Form.Item>
           <Form.Item label="Tell us anything else you want to let us know...">
-            {getFieldDecorator('other')(<TextArea rows={2} />)}
+            {getFieldDecorator('other')(
+              <TextArea rows={2} placeholder="Anything else (optional)" />
+            )}
           </Form.Item>
           <Form.Item
             label={
@@ -92,13 +128,13 @@ const FeedbackForm = props => {
           >
             {getFieldDecorator('email')(
               <Input
-                placeholder="Enter your username"
+                placeholder="Email address (optional)"
                 prefix={<Icon type="mail" />}
               />
             )}
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
+            <Button className="formSubmit" type="primary" htmlType="submit">
               Submit
             </Button>
           </Form.Item>
