@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Card, Col, Icon, Row } from 'antd'
+import { Icon } from 'antd'
 
 const FooterContent = () => {
   return (
