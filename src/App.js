@@ -8,6 +8,7 @@ import FAQs from 'components/FAQs'
 
 import rocket from 'resources/rocket'
 import FeedbackWrapper from 'components/FeedbackWrapper'
+import FooterContent from 'components/FooterContent'
 
 const { Header, Footer, Content } = Layout
 
@@ -70,7 +71,9 @@ const App = () => {
         </Content>
         <Footer className="center">
           <Row>
-            <Col {...wideColumn}>made by @jnnksbrt</Col>
+            <Col {...wideColumn}>
+              <FooterContent />
+            </Col>
           </Row>
         </Footer>
       </Layout>
