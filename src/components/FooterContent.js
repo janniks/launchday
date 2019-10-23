@@ -17,7 +17,9 @@ const FooterContent = () => {
           GitHub <Icon type="github" />
         </a>
       </p>
-      <p></p>
+      <a href="https://www.netlify.com">
+        <img alt="Deploys by netlify" src="/images/netlify-light.svg" />
+      </a>
     </div>
   )
 }
