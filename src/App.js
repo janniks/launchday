@@ -8,6 +8,7 @@ import Today from 'pages/Today'
 import FAQs from 'components/FAQs'
 import FeedbackWrapper from 'components/FeedbackWrapper'
 import FooterContent from 'components/FooterContent'
+import HunterBanner from 'components/HunterBanner'
 import rocket from 'resources/rocket'
 import showCookiePopup from 'lib/cookiePopup'
 
@@ -51,6 +52,7 @@ const App = () => {
         <Content>
           <Row>
             <Col {...wideColumn}>
+              <HunterBanner />
               <p>
                 Launchday shows you the history of votes/comments for products
                 on ProductHunt. All times are shown in ProductHunt time (i.e.

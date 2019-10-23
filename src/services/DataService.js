@@ -15,7 +15,6 @@ export default class DataService {
       .get(`${TODAY_URL}`)
       .then(response => {
         setStatus('Calculating graphs...')
-        console.log('data', response.data)
         const datasets = transformToDatasets(response.data)
         setDatasets(datasets)
       })
@@ -27,7 +26,6 @@ export default class DataService {
 }
 
 function transformToDatasets(data) {
-  console.log('transform start')
   let commentDatasets = []
   let voteDatasets = []
 
@@ -71,7 +69,6 @@ function transformToDatasets(data) {
   commentDatasets = sortBy(commentDatasets, ds => -ds.data[0].y)
   voteDatasets = sortBy(voteDatasets, ds => -ds.data[0].y)
 
-  console.log('transform complete')
   return {
     commentDatasets,
     voteDatasets
