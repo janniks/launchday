@@ -5,6 +5,9 @@ import 'App.less'
 import { Col, Icon, Layout, Row } from 'antd'
 
 import Today from 'pages/Today'
+import Policies from 'pages/Policies'
+import Terms from 'pages/Terms'
+
 import FAQs from 'components/FAQs'
 import FeedbackWrapper from 'components/FeedbackWrapper'
 import FooterContent from 'components/FooterContent'
@@ -59,7 +62,9 @@ const App = () => {
                 San Francisco time, PDT PST)
               </p>
               <Router>
-                <Route path="/" component={Today} />
+                <Route path="/" exact component={Today} />
+                <Route path="/terms" component={Terms} />
+                <Route path="/policies" component={Policies} />
               </Router>
             </Col>
           </Row>

@@ -38,6 +38,9 @@ const FooterContent = () => {
           />
         </a>
       </div>
+      <p style={{ marginTop: 14 }}>
+        <a href="/terms">Terms</a> &amp; <a href="policies">Policies</a>
+      </p>
     </div>
   )
 }
