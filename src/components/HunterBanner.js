@@ -17,9 +17,8 @@ const HunterBanner = props => {
           Welcome Hunters!{' '}
           <span role="img" aria-label="wave emoji">
             👋
-          </span>
-          Let us know what you think! If you like Launchday, help us to the top
-          of ProductHunt{' '}
+          </span>{' '}
+          Let us know what you think and leave us a comment!{' '}
           <span role="img" aria-label="rocket emoji">
             🚀
           </span>
