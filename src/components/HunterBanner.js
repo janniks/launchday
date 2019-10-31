@@ -7,7 +7,7 @@ const bannerColumn = {
   md: { span: 12 }
 }
 
-const HunterBanner = props => {
+const HunterBanner = () => {
   const ref = new URL(window.location.href).searchParams.get('ref')
 
   if (ref === 'producthunt') {
