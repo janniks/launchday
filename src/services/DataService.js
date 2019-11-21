@@ -52,16 +52,16 @@ function transformToDatasets(data) {
       data: commentCoordinates,
       label: post.post_name,
       fill: false,
-      backgroundColor: colors[index],
-      borderColor: colors[index],
+      backgroundColor: colors[index].hex(),
+      borderColor: colors[index].hex(),
       lineTension: 0.1
     })
     voteDatasets.push({
       data: voteCoordinates,
       label: post.post_name,
       fill: false,
-      backgroundColor: colors[index],
-      borderColor: colors[index],
+      backgroundColor: colors[index].hex(),
+      borderColor: colors[index].hex(),
       lineTension: 0.1
     })
   })
