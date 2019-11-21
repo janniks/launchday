@@ -4,36 +4,18 @@ import 'App.less'
 
 import { Col, Icon, Layout, Row } from 'antd'
 
-import Today from 'pages/Today'
+import PHToday from 'pages/PHToday'
+import HNTopStories from 'pages/HNTopStories'
 import Policies from 'pages/Policies'
 import Terms from 'pages/Terms'
 
-import FAQs from 'components/FAQs'
-import FeedbackWrapper from 'components/FeedbackWrapper'
-import FooterContent from 'components/FooterContent'
-import HunterBanner from 'components/HunterBanner'
 import rocket from 'resources/rocket'
 import showCookiePopup from 'lib/cookiePopup'
+import layout from 'lib/layout'
 
-const { Header, Footer, Content } = Layout
+const { Header } = Layout
 
 const RocketIcon = () => <Icon component={rocket} />
-
-const wideColumn = {
-  xs: { span: 22, offset: 1 },
-  sm: { span: 22, offset: 1 },
-  md: { span: 20, offset: 2 },
-  lg: { span: 18, offset: 3 },
-  xl: { span: 14, offset: 5 }
-}
-
-const thinColumn = {
-  xs: { span: 22, offset: 1 },
-  sm: { span: 20, offset: 2 },
-  md: { span: 14, offset: 5 },
-  lg: { span: 10, offset: 7 },
-  xl: { span: 8, offset: 8 }
-}
 
 const App = () => {
   showCookiePopup()
@@ -43,49 +25,21 @@ const App = () => {
       <Layout>
         <Header>
           <Row>
-            <Col {...wideColumn}>
+            <Col {...layout.wideColumn}>
               <a className="logo beta" href="/">
                 <h1>
-                  Launchday <RocketIcon />
+                  Trendy <RocketIcon />
                 </h1>
               </a>
             </Col>
           </Row>
         </Header>
-        <Content>
-          <Row>
-            <Col {...wideColumn}>
-              <HunterBanner />
-              <p>
-                Launchday shows you the history of votes/comments for products
-                on ProductHunt. All times are shown in ProductHunt time (i.e.
-                San Francisco time, PDT PST)
-              </p>
-              <Router>
-                <Route path="/" exact component={Today} />
-                <Route path="/terms" component={Terms} />
-                <Route path="/policies" component={Policies} />
-              </Router>
-            </Col>
-          </Row>
-          <Row>
-            <Col {...wideColumn}>
-              <FAQs />
-            </Col>
-          </Row>
-          <Row>
-            <Col {...thinColumn}>
-              <FeedbackWrapper />
-            </Col>
-          </Row>
-        </Content>
-        <Footer className="center">
-          <Row>
-            <Col {...wideColumn}>
-              <FooterContent />
-            </Col>
-          </Row>
-        </Footer>
+        <Router>
+          <Route path="/" exact component={PHToday} />
+          <Route path="/hn" exact component={HNTopStories} />
+          <Route path="/terms" component={Terms} />
+          <Route path="/policies" component={Policies} />
+        </Router>
       </Layout>
     </div>
   )
