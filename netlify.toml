@@ -8,7 +8,7 @@
   to = "/static/terms.html"
   status = 200
 
-  [[redirects]]
+[[redirects]]
   from = "/static/policies"
   to = "/static/policies.html"
   status = 200
