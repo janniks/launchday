@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Icon } from 'antd'
+import { Link } from 'react-router-dom'
 
 const FooterContent = () => {
   return (
@@ -39,7 +40,8 @@ const FooterContent = () => {
         </a>
       </div>
       <p style={{ marginTop: 14 }}>
-        <a href="/terms">Terms</a> &amp; <a href="/policies">Policies</a>
+        <Link to="/terms">Terms</Link> &amp;{' '}
+        <Link to="/policies">Policies</Link>
       </p>
     </div>
   )
