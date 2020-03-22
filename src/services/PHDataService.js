@@ -3,7 +3,7 @@ import axios from 'axios'
 import generateColors from 'distinct-colors'
 import { sortBy } from 'lodash'
 
-const BASE_URL = process.env.REACT_APP_BASE_URL
+const BASE_URL = process.env.REACT_APP_PH_BASE_URL
 const TODAY_URL = `${BASE_URL}/today`
 
 export default class DataService {

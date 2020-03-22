@@ -1,0 +1,14 @@
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/static/terms"
+  to = "/static/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/static/policies"
+  to = "/static/policies.html"
+  status = 200

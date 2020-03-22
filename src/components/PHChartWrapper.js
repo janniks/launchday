@@ -1,16 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { Card, Icon, Tabs } from 'antd'
-import Chart from 'components/Chart'
+import { Card, Icon, Result, Tabs } from 'antd'
+
+import PHChart from 'components/PHChart'
+import PHService from 'services/PHDataService'
 
 const { TabPane } = Tabs
 
-const ChartWrapper = props => {
-  if (!props.datasets) {
+const PHChartWrapper = () => {
+  const [error, setError] = useState(false)
+  const [status, setStatus] = useState('Fetching data...')
+  const [datasets, setDatasets] = useState(false)
+
+  useEffect(() => {
+    PHService.getToday({ setDatasets, setStatus, setError })
+  }, [])
+
+  if (error) {
+    return <Result status="warning" title="Error" subTitle={error} />
+  }
+
+  if (!datasets) {
     return (
       <div className="Status center">
         <Card className="inlineCard">
-          <Icon type="loading" size="large" /> {props.status}
+          <Icon type="loading" size="large" /> {status}
         </Card>
       </div>
     )
@@ -31,7 +45,7 @@ const ChartWrapper = props => {
               </span>
             }
           >
-            <Chart datasets={props.datasets.voteDatasets} chartType="votes" />
+            <PHChart datasets={datasets.voteDatasets} chartType="votes" />
           </TabPane>
           <TabPane
             key="comments"
@@ -43,10 +57,7 @@ const ChartWrapper = props => {
               </span>
             }
           >
-            <Chart
-              datasets={props.datasets.commentDatasets}
-              chartType="comments"
-            />
+            <PHChart datasets={datasets.commentDatasets} chartType="comments" />
           </TabPane>
         </Tabs>
       </Card>
@@ -54,4 +65,4 @@ const ChartWrapper = props => {
   )
 }
 
-export default ChartWrapper
+export default PHChartWrapper

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import { Button, Icon } from 'antd'
 
-const Legend = props => {
+const PHLegend = props => {
   const [update, setUpdate] = useState(0)
   const tick = () => {
     setUpdate(update + 1)
@@ -46,7 +46,7 @@ const Legend = props => {
   )
 }
 
-export default Legend
+export default PHLegend
 
 function legendClick(chart, index, tick) {
   let meta = chart.getDatasetMeta(index)

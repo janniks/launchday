@@ -27,7 +27,7 @@ const FAQs = () => {
           <Col {...panelColumn}>
             <h3>Do you have data for every day ever?</h3>
             <p>
-              Unfortunately, we startet this project in October 2019 and only
+              Unfortunately, we started this project in October 2019 and only
               have the data since then. Feel free to{' '}
               <a href="https://twitter.com/intent/tweet?text=@ProductHunt%20check%20out%20launchday.netlify.com%20-%20they%20need%20your%20data!%20📊">
                 tweet at ProductHunt

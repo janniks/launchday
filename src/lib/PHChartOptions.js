@@ -2,7 +2,7 @@ import moment from 'moment-timezone'
 
 const timezoneOffset = moment().utcOffset() / 60
 
-const getChartOptions = type => ({
+const getPHChartOptions = type => ({
   scales: {
     xAxes: [
       {
@@ -71,4 +71,4 @@ const getChartOptions = type => ({
   }
 })
 
-export default getChartOptions
+export default getPHChartOptions

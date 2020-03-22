@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import moment from 'moment-timezone'
 
-const TimeTick = () => {
+const PHTimeTick = () => {
   const [tick, setTick] = useState(-1)
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const TimeTick = () => {
   )
 }
 
-export default TimeTick
+export default PHTimeTick
